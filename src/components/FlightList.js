@@ -1,18 +1,21 @@
+import React, { useState } from "react";
 
-import React, { useState } from 'react';
+import Card from "react-bootstrap/Card";
+import Icon from "../assets/airplane.png";
+import Form from 'react-bootstrap/Form';
 
 const FlightList = ({ flights }) => {
   const [sortBy, setSortBy] = useState(null); // Varsayılan sıralama kriteri kalkış saati
 
   const sortedFlights = flights.slice().sort((a, b) => {
     switch (sortBy) {
-      case 'departureTime':
+      case "departureTime":
         return a.departureDate.localeCompare(b.departureDate);
-      case 'returnTime':
+      case "returnTime":
         return a.returnDate.localeCompare(b.returnDate);
-      case 'duration':
+      case "duration":
         return a.duration.localeCompare(b.duration);
-      case 'price':
+      case "price":
         return a.price - b.price;
       default:
         return 0;
@@ -21,24 +24,32 @@ const FlightList = ({ flights }) => {
 
   return (
     <div>
-      <div>
-        <label>Sırala:</label>
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+      <div class="d-flex  justify-content" >
+        <label class="m-2">Sırala:</label>
+        <Form.Select  value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="departureTime">Kalkış Saati</option>
           <option value="returnTime">Dönüş Saati</option>
           <option value="duration">Uçuş Uzunluğu</option>
           <option value="price">Fiyat</option>
-        </select>
+        </Form.Select>
       </div>
+
       <ul>
         {sortedFlights.map((flight) => (
           <li key={flight.id}>
-            <div>Havayolu: {flight.airline}</div>
-            <div>{flight.departureAirport} to {flight.arrivalAirport}</div>
-            <div>Kalkış: {flight.departureDate}</div>
-            <div>Dönüş: {flight.returnDate}</div>
-            <div>Uçuş Uzunluğu: {flight.duration}</div>
-            <div>Fiyat: {flight.price} USD</div>
+            <Card style={{ width: "14rem" }}>
+              <Card.Img variant="top" src={Icon} />
+              <Card.Body>
+                <Card.Title>Havayolu: {flight.airline}</Card.Title>
+                <Card.Text>
+                  {flight.departureAirport} to {flight.arrivalAirport}
+                </Card.Text>
+                <Card.Text>Kalkış: {flight.departureDate}</Card.Text>
+                <Card.Text>Dönüş: {flight.returnDate}</Card.Text>
+                <Card.Text>Uçuş Uzunluğu: {flight.duration}</Card.Text>
+                <Card.Text>Fiyat: {flight.price} USD</Card.Text>
+              </Card.Body>
+            </Card>
           </li>
         ))}
       </ul>

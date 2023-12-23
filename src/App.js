@@ -6,6 +6,7 @@ import FlightList from "./components/FlightList";
 import LoadingIndicator from "./components/LoadingIndicator";
 import { getMockFlights } from "./assets/mock";
 import "bootstrap/dist/css/bootstrap.min.css";
+import  Header  from "./components/Header";
 
 const mockAPI = {
   searchFlights: (searchParams) => {
@@ -78,6 +79,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header/>
       <FlightSearchForm
         searchParams={searchParams}
         onSearchParamsChange={(newSearchParams) =>

@@ -1,6 +1,7 @@
 
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 
-const LoadingIndicator = () => <div>Loading...</div>;
+const LoadingIndicator = () => <Spinner animation="border"  />;
 
 export default LoadingIndicator;
