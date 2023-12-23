@@ -38,6 +38,7 @@ const FlightSearchForm = ({ searchParams, onSearchParamsChange, onSearch }) => {
       <InputGroup className="mb-3">
       <InputGroup.Text>Kalkış ve Varış Tarihleri</InputGroup.Text>
       <Form.Control aria-label="First name" type="date"
+          min={new Date().toJSON().slice(0, 10)}
           value={searchParams.departureDate}
           onChange={(e) =>
             onSearchParamsChange({
@@ -46,6 +47,7 @@ const FlightSearchForm = ({ searchParams, onSearchParamsChange, onSearch }) => {
             })
           } />
       <Form.Control aria-label="Last name" type="date"
+          min={new Date().toJSON().slice(0, 10)}
           value={searchParams.returnDate}
           onChange={(e) =>
             onSearchParamsChange({
