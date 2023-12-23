@@ -47,7 +47,7 @@ const FlightList = ({ flights }) => {
                   </Card.Text>
                   <Card.Text>Kalkış: {flight.departureDate}</Card.Text>
                   <Card.Text>Dönüş: {flight.returnDate}</Card.Text>
-                  <Card.Text>Uçuş Uzunluğu: {flight.duration}</Card.Text>
+                  <Card.Text>Uçuş Uzunluğu: {flight.duration}h</Card.Text>
                   <Card.Text>Fiyat: {flight.price} USD</Card.Text>
                 </Card.Body>
               </Card>
