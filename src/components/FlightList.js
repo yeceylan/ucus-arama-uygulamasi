@@ -27,8 +27,8 @@ const FlightList = ({ flights }) => {
       <div className="d-flex  justify-content">
         <label className="m-2">Sırala:</label>
         <Form.Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="departureTime">Kalkış Saati</option>
-          <option value="returnTime">Dönüş Saati</option>
+          <option value="departureTime">Kalkış Havaalanı</option>
+          <option value="returnTime">Dönüş Havaalanı</option>
           <option value="duration">Uçuş Uzunluğu</option>
           <option value="price">Fiyat</option>
         </Form.Select>
@@ -56,7 +56,7 @@ const FlightList = ({ flights }) => {
         </ul>
       ) : (
         <p>Uçuş bulunamadı.</p>
-      )}
+      )}  
     </div>
   );
 };
